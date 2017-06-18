@@ -1,0 +1,156 @@
+
+ 		<!-- home page --> 
+ 		<script>
+	jQuery(document).ready(
+			function() {
+				jQuery('.tabs .tab-links a').on(
+						'click',
+						function(e) {
+							var currentAttrValue = jQuery(this).attr('href');
+
+							// Show/Hide Tabs
+							jQuery('.tabs ' + currentAttrValue).siblings()
+									.slideUp(400);
+							jQuery('.tabs ' + currentAttrValue).delay(400)
+									.slideDown(400);
+
+							// Change/remove current tab to active
+							jQuery(this).parent('li').addClass('active')
+									.siblings().removeClass('active');
+
+							e.preventDefault();
+						});
+			});
+</script>
+
+<style>
+.tabs {
+	width: 100%;
+	display: inline-block;
+}
+
+/*----- Tab Links -----*/
+/* Clearfix */
+.tab-links:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+
+.tab-links li {
+	margin: 0px 5px;
+	float: left;
+	list-style: none;
+}
+
+.tab-links a {
+	padding: 9px 15px;
+	display: inline-block;
+	border-radius: 3px 3px 0px 0px;
+	background: #7FB5DA;
+	font-size: 16px;
+	font-weight: 600;
+	color: #4c4c4c;
+	transition: all linear 0.15s;
+}
+
+.tab-links a:hover {
+	background: #a7cce5;
+	text-decoration: none;
+}
+
+li.active a, li.active a:hover {
+	background: #fff;
+	color: #4c4c4c;
+}
+
+/*----- Content of Tabs -----*/
+.tab-content {
+	padding: 15px;
+	border-radius: 3px;
+	box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+	background: #fff;
+}
+
+.tab {
+	display: none;
+}
+
+.tab.active {
+	display: block;
+}
+</style>
+
+
+<div class="tabs">
+	<ul class="tab-links">
+		
+			<li class="active"><a href="#tab1">blog</a></li>
+			<li><a href="#tab2">event</a></li>
+			
+		
+		<!-- <li><a href="#tab4">Forum</a></li> -->
+	</ul>
+	
+
+	<div class="tab-content">
+		<div id="tab1" class="tab active">
+			<div class="container"   ng-controller="BlogController as bctrl">
+		<h2>All Blogs</h2>
+
+		<table class="table text-centre">
+			<tr class="success">
+				<th><center>BlogId</center></th>
+				<th><center>Name</center></th>
+				<th><center>User-ID</center></th>
+				<th><center>Description</center></th>
+				
+				
+
+			</tr>
+			<tr ng-repeat="bo in blogs " class="danger">
+				<td>{{bo.id}}</td>
+				<td>{{bo.title}}</td>
+				<td>{{bo.userID}}</td>
+				<td>{{bo.description}}</td>
+				
+			</tr>
+		</table>
+
+	</div>
+			</div>
+			
+			
+			
+
+		<div id="tab2" class="tab">
+		<div class="container"  ng-controller="eventController as eC">
+		<h2>All Events</h2>
+			 <table class="table" class="success">
+        <tr class="success">
+            <th><center>Event No</center></th>
+            <th><center>Event Location</center></th>
+            <th><center>Event Date</center></th>
+            <th><center>Description</center></th>
+          
+            <!-- <th>Edit</th> -->
+
+        </tr>
+        <tr ng-repeat="event  in events" class="danger">
+            <td> <center>{{event.id}}</center></td>
+            <td><center>{{event.venue}}</center></td>
+            <td><center>{{event.eventDate}}</center></td>
+            <td><center>{{event.description}}</center></td>
+
+            <!-- <td><a href="" ng-click="edit(event.id)">Edit</a></td> -->
+
+
+
+        </tr>
+    </table>
+
+		</div>
+
+
+	</div>
+</div>

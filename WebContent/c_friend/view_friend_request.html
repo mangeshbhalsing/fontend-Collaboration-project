@@ -1,0 +1,29 @@
+
+<div class="card">
+
+<div class=" text-center" ng-controller="friendController as fC" >
+<h1>Pending Requests</h1>
+<table class="table">
+	<tr class="success">
+		<th><center>Friend Id</centre></th>
+		<th><center>User Id</centre></th>
+		<th><center>Status</centre></th>
+		<th><center>IsOnline</centre></th>
+
+		<th><center>Accept</centre></th>
+		<th><center>Reject</centre></th>
+
+	</tr>
+	<tr ng-repeat="pF in fC.pendingFriends" class="danger">
+		<td><centre>{{pF.friendId}}</centre></td>
+		<td><centre>{{pF.userId}}</centre></td>
+		<td><centre>{{pF.status}}</centre></td>
+		<td><centre>{{pF.isOnline}}</centre></td>
+
+		<td><centre><a href="" ng-click="approveFriend(pF.userId)">Accept <span class="glyphicon glyphicon-ok-sign"></span> </a></centre></td>
+		<td><centre><a href="" ng-click="rejectFriend(pF.userId)">Reject <span class="glyphicon glyphicon-remove-sign"></span> </a></centre></td>
+		<!-- <td><centre><a href="" ng-click="edit(event.eventId)">Edit</a></centre></td> -->
+	</tr>
+</table>
+</div>
+</div>

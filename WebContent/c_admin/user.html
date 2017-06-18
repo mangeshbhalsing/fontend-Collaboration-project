@@ -1,0 +1,31 @@
+
+<div class="card">
+
+	<div class=" text" ng-controllers="UserController ">
+		<h1>User Page</h1>
+
+		<table class="table">
+			<tr class="success">
+				<th><center>UserId</center></th>
+				<th><center>Name</center></th>
+				<th><center>Status</center></th>
+				<th><center>Mobile</center></th>
+				<th><center>Role</center></th>
+				<th><center>Approve</center></th>
+				<th><center>Reject</center></th>
+
+			</tr>
+			<tr ng-repeat="user in users" class="danger">
+				<td>{{user.id}}</td>
+				<td>{{user.name}}</td>
+				<td>{{user.status}}</td>
+				<td>{{user.mobile}}</td>
+				<td>{{user.role}}</td>
+				<td><a href="" ng-click="accept(user.id)">Approve</a></td>	
+				<td><a href="" ng-click="reject(user.id)" style="color: red">Reject</a></td>		
+			</tr>
+		</table>
+
+	</div>
+
+</div>

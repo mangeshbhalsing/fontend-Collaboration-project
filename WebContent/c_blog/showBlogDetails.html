@@ -1,0 +1,110 @@
+<div class="container" ng-controller="BlogController">
+	<div class="row">
+	<button class="btn btn-xs btn-primary pull-right" type="button"
+				href="#showAllBlogs">Back to Menu</button>
+        <div class="col-md-12">        
+		Blog Title<h3>{{currentBlog.title}}</h3>
+		<span class="badge">{{currentBlog.noOfViews}}</span>
+       Description: <p>{{currentBlog.description}}</p>
+        <div class=" row">
+
+			<div class="col-sm-3">
+				<h4 style="margin-left: 20%;color: blue;" >Blog Comment</h4>
+			</div>
+
+		</div>
+
+		<div ng-controller="blogcommentController as bcc">
+			<div ng-repeat="c in bcc.comments">
+				<div class="col-xs-9 col-xs-offset-1" ng-hide="c.rating==0">
+					<blockquote class="blockquote"style="border-left: 5px solid #E91E63;" >
+						<p class="mb-0">{{c.rating}} Stars ::</p>
+						<p class="mb-0">{{c.description}}</p>
+						<footer>
+							{{c.userId}}, <cite title="Source Title">{{c.commentDate}}</cite>
+						</footer>
+					</blockquote>
+				</div>
+			</div>
+
+			<div class="col-xs-9 col-xs-offset-1">
+				<div
+					ng-show="!commentForm.$invalid && !commentForm.description.$pristine ">
+
+					<blockquote class="blockquote">
+						<p class="mb-0" style="color: #18117d;">{{bcc.comment.rating}} Stars</p>
+						<p class="mb-0" style="color: #18117d;">{{bcc.comment.description}}</p>
+						<footer style="color: #E91E63;">
+							{{bcc.comment.userId}}, <cite title="Source Title">{{bcc.comment.commentDate}}</cite>
+						</footer>
+					</blockquote>
+
+
+				</div>
+
+				<form class="form-horizontal" name="commentForm"
+					ng-submit="bcc.submit()" novalidate>
+					<!-- Text input-->
+
+					<div class="form-group"
+						ng-class="{ 'has-error' : commentForm.userId.$error.required && !commentForm.userId.$pristine }">
+						<!-- <label class="col-md-4 control-label" for="userId">Your
+							Name</label> -->
+						<div class="col-md-6">
+							<input id="userId" name="userId" type="hidden"
+								placeholder="userId" class="form-control input-md"
+								ng-model="bcc.comment.userId" required> <span
+								ng-show="commentForm.userId.$error.required && !commentForm.userId.$pristine"
+								class="help-block">Your name is required.</span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="rating">Rating</label>
+						<div class="col-md-6">
+							<label class="radio-inline"> <input type="radio"
+								name="optradio" ng-model="bcc.comment.rating" value="1">1
+							</label> <label class="radio-inline"> <input type="radio"
+								name="optradio" ng-model="bcc.comment.rating" value="2">2
+							</label> <label class="radio-inline"> <input type="radio"
+								name="optradio" ng-model="bcc.comment.rating" value="3">3
+							</label> <label class="radio-inline"> <input type="radio"
+								name="optradio" ng-model="bcc.comment.rating" value="4">4
+							</label> <label class="radio-inline"> <input type="radio"
+								name="optradio" ng-model="bcc.comment.rating" value="5">5
+							</label>
+						</div>
+					</div>
+
+
+					<div class="form-group"
+						ng-class="{ 'has-error' : commentForm.description.$error.required && !commentForm.description.$pristine }">
+						<label class="col-md-4 control-label" for="description">Comment</label>
+						<div class="col-md-6">
+							<textarea id="description" name="description" type="text"
+								placeholder="Type your comment" class="form-control input-md"
+								ng-model="bcc.comment.description" required></textarea>
+							<span
+								ng-show="commentForm.description.$error.required && !commentForm.description.$pristine"
+								class="help-block">Your comment is required.</span>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label" for=""></label>
+						<div class="col-md-2">
+							<button type="submit"
+								class="btn btn-primary btn-md form-control "
+								ng-disabled="commentForm.$invalid">Submit</button>
+
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+		</div>
+       
+        </div>
+	</div>
+</div>

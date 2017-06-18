@@ -1,0 +1,41 @@
+<div class="container" ng-controller="BlogController as bctrl">
+<div ng-show='bctrl.blog.errorMessage'>
+            <div class="alert alert-danger fade in">
+                {{bctrl.blog.errorMessage}}</div>
+
+        </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 well well-sm">
+            <legend><a href="http://www.jquery2dotnet.com"><i class="glyphicon glyphicon-globe"></i></a> Create Blog</legend>
+            <form name="blogForm" ng-submit="bctrl.submit()" role="form">
+            <div class="form-group"
+                ng-class="{ 'has-error': blogForm.title.$dirty && blogForm.title.$error.required }"> 
+                <label for="title">Blog Title</label> <input type="text"
+                    name="title" id="title" class="form-control"
+                    ng-model="bctrl.blog.title" required /> <span
+                    ng-show="blogForm.title.$dirty && blogForm.title.$error.required"
+                    class="help-block">Title is required</span>
+            </div>      
+            <div class="form-group"
+                ng-class="{ 'has-error': blogForm.description.$dirty && blogForm.description.$error.required }">
+                <label for="description">Description</label> <textarea rows="10" cols="30"
+                    name="description" id="description" class="form-control"
+                    ng-model="bctrl.blog.description" required /> <span
+                    ng-show="blogForm.description.$dirty && blogForm.description.$error.required"
+                    class="help-block"></textarea>Description is required</span>
+            </div>
+            
+            <div class="form-actions">
+                <input type="submit" value="Add" class="btn btn-lg btn-primary btn-block"
+                    ng-disabled="blogForm.$invalid">
+                    
+                <button type="button" ng-click="bctrl.reset()"
+                    class="btn btn-warning btn-sm" ng-disabled="blogForm.$pristine">Reset
+                    Form</button>
+            </div>
+            </form>
+            <marquee ng-show="isloggedBlog">You Have successFully created your Blog & Just Waiting For Admin approval</marquee>
+        </div>
+    </div>
+    </div>

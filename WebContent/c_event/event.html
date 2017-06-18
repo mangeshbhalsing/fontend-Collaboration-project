@@ -1,0 +1,88 @@
+<div class="container"  ng-controller="eventController as eC">
+
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 well well-sm">
+            <legend><a href="http://www.jquery2dotnet.com"><i class="glyphicon glyphicon-globe"></i></a> Create Blog</legend>
+           <form name="eventForm" ng-submit="eC.submit()" role="form" id="eventForm">
+
+
+            <div class="form-group"
+                ng-class="{ 'has-error': eventForm.id.$dirty && eventForm.id.$error.required }">
+
+                <input type="hidden" name="id" id="id"
+                    class="form-control" ng-model="eC.event.id" />
+
+            </div>
+            <div class="form-group"
+                ng-class="{ 'has-error': eventForm.name.$dirty && eventForm.name.$error.required }">
+                <label for="name">Event Name</label> <input type="text"
+                    name="name" id="name" class="form-control"
+                    ng-model="eC.event.name" required /> <span
+                    ng-show="eventForm.name.$dirty && eventForm.name.$error.required"
+                    class="help-block">Event Location is required</span>
+            </div>
+            
+            <div class="form-group"
+                ng-class="{ 'has-error': eventForm.venue.$dirty && eventForm.venue.$error.required }">
+                <label for="venue">Event Venue</label> <input type="text"
+                    name="venue" id="venue" class="form-control"
+                    ng-model="eC.event.venue" required /> <span
+                    ng-show="eventForm.venue.$dirty && eventForm.venue.$error.required"
+                    class="help-block">Event Location is required</span>
+            </div>
+            <div class="form-group"
+                ng-class="{ 'has-error': eventForm.eventDate.$dirty && eventForm.eventDate.$error.required }">
+                <label for="eventDate">Event Date</label> <input type="text"
+                    name="eventDate" id="eventDate" class="form-control"
+                    ng-model="eC.event.eventDate" required /> <span
+                    ng-show="eventForm.eventDate.$dirty && eventForm.eventDate.$error.required"
+                    class="help-block">Event Date is required</span>
+            </div>
+
+            <div class="form-group"
+                ng-class="{ 'has-error': eventForm.description.$dirty && eventForm.description.$error.required }">
+                <label for="description">Description</label> <input type="text"
+                    name="description" id="description" class="form-control"
+                    ng-model="eC.event.description" required /> <span
+                    ng-show="eventForm.description.$dirty && eventForm.description.$error.required"
+                    class="help-block">Description is required</span>
+            </div>
+
+            <div class="form-actions">
+                <input type="submit" value="Add" class="btn btn-lg btn-primary btn-block"
+                    ng-disabled="eventForm.$invalid">
+                <button type="button" ng-click="eC.reset()"
+                    class="btn btn-warning btn-sm" ng-disabled="eventForm.$pristine">Reset
+                    Form</button>
+            </div>
+        </form>
+            <marquee ng-show="isloggedBlog">You Have successFully created your Blog & Just Waiting For Admin approval</marquee>
+        </div>
+    </div>
+
+    <table class="table" class="success">
+        <tr >
+            <th><center>Event No</center></th>
+            <th><center>Event Location</center></th>
+            <th><center>Event Date</center></th>
+            <th><center>Description</center></th>
+            <th><center>Delete</center></th>
+            <!-- <th>Edit</th> -->
+
+        </tr>
+        <tr ng-repeat="event  in events" class="danger">
+            <td> <center>{{event.id}}</center></td>
+            <td><center>{{event.venue}}</center></td>
+            <td><center>{{event.eventDate}}</center></td>
+            <td><center>{{event.description}}</center></td>
+
+            <td ><a href="" ng-click='deleteEvent(event.id)'>Delete <span class="glyphicon glyphicon-remove-sign"></span>
+            </a></td>
+            <!-- <td><a href="" ng-click="edit(event.id)">Edit</a></td> -->
+
+
+
+        </tr>
+    </table>
+    </div>

@@ -1,0 +1,115 @@
+<div class=" text-center" ng-controller="jobController as jC">
+	<h1>Job Page</h1>
+
+
+
+	<div class="col-md-6 col-md-offset-3 text-center">
+
+		<form name="jobForm" ng-submit="jC.submit()" role="form" id="jobForm">
+
+
+			<div class="form-group"
+				ng-class="{ 'has-error': jobForm.jobId.$dirty && jobForm.jobId.$error.required }">
+
+				<input type="hidden" name="jobId" id="jobId"
+					class="form-control" ng-model="jC.job.jobId" />
+
+			</div>
+			<div class="form-group"
+				ng-class="{ 'has-error': jobForm.location.$dirty && jobForm.location.$error.required }">
+				<label for="location">Job Location</label> <input type="text"
+					name="location" id="location" class="form-control"
+					ng-model="jC.job.location" required /> <span
+					ng-show="jobForm.location.$dirty && jobForm.location.$error.required"
+					class="help-block">job Location is required</span>
+			</div>
+			<div class="form-group"
+				ng-class="{ 'has-error': jobForm.profile.$dirty && jobForm.profile.$error.required }">
+				<label for="profile">Profile</label> <input type="text"
+					name="profile" id="profile" class="form-control"
+					ng-model="jC.job.profile" required /> <span
+					ng-show="jobForm.profile.$dirty && jobForm.profile.$error.required"
+					class="help-block">job profile is required</span>
+			</div>
+			<div class="form-group"
+				ng-class="{ 'has-error': jobForm.qualification.$dirty && jobForm.qualification.$error.required }">
+				<label for="qualification">Qualification</label> <input type="text"
+					name="qualification" id="qualification" class="form-control"
+					ng-model="jC.job.qualification" required /> <span
+					ng-show="jobForm.qualification.$dirty && jobForm.qualification.$error.required"
+					class="help-block">qualification is required</span>
+			</div>
+			
+			<div class="form-group"
+				ng-class="{ 'has-error': jobForm.slectionProcess.$dirty && jobForm.slectionProcess.$error.required }">
+				<label for="slectionProcess">SlectionProcess</label> <input type="text"
+					name="slectionProcess" id="slectionProcess" class="form-control"
+					ng-model="jC.job.slectionProcess" required /> <span
+					ng-show="jobForm.slectionProcess.$dirty && jobForm.slectionProcess.$error.required"
+					class="help-block">SlectionProcess is required</span>
+			</div>
+			
+			<div class="form-group"
+				ng-class="{ 'has-error': jobForm.salary.$dirty && jobForm.salary.$error.required }">
+				<label for="salary">Salary</label> <input type="text"
+					name="salary" id="salary" class="form-control"
+					ng-model="jC.job.salary" required /> <span
+					ng-show="jobForm.salary.$dirty && jobForm.salary.$error.required"
+					class="help-block">job salary is required</span>
+			</div>
+		
+
+			<div class="form-group"
+				ng-class="{ 'has-error': jobForm.description.$dirty && jobForm.description.$error.required }">
+				<label for="description">Description</label> <input type="text"
+					name="description" id="description" class="form-control"
+					ng-model="jC.job.description" required /> <span
+					ng-show="jobForm.description.$dirty && jobForm.description.$error.required"
+					class="help-block">Description is required</span>
+			</div>
+
+			<div class="form-actions">
+				<input type="submit" value="Add" class="btn btn-lg btn-primary btn-block"
+					ng-disabled="jobForm.$invalid">
+				<button type="button" ng-click="jC.reset()"
+					class="btn btn-warning btn-sm" ng-disabled="jobForm.$pristine">Reset
+					Form</button>
+			</div>
+		</form>
+		<hr>
+	</div>
+
+
+	<table class="table">
+		<tr>
+			<th>Job No</th>
+			<th>Job Profile</th>
+			<th>Salary</th>
+			<th>Description</th>
+			<th>Location</th>
+			<th>Qualification</th>
+			<th>Seletion Proccess</th>
+			<th ng-show = "currentUserRoleId == 'Role_Admin'">Delete</th>
+			<!-- <th>Edit</th> -->
+
+		</tr>
+		<tr ng-repeat="job  in jobs">
+			<td>{{job.jobId}}</td>
+			<td>{{job.profile}}</td>
+			<td>{{job.salary}}</td>
+			<td>{{job.description}}</td>
+			<td>{{job.location}}</td>
+			<td>{{job.qualification}}</td>
+			<td>{{job.slectionProcess}}</td>
+			
+
+			<td ng-show = "currentUserRoleId == 'Role_Admin'"><a href="" ng-click="deleteJob(job.jobId)">Delete
+			</a></td>
+			<!-- <td><a href="" ng-click="edit(event.eventId)">Edit</a></td> -->
+
+
+
+		</tr>
+	</table>
+
+</div>

@@ -1,0 +1,30 @@
+<div class="card">
+
+	<div class=" text-center" ng-controllers="BlogController as ctrl">
+		<h1>Blog Page</h1>
+
+		<table class="table text-centre">
+			<tr class="success">
+				<th><center>BlogId</center></th>
+				<th><center>Name</center></th>
+				<th><center>User-ID</center></th>
+				<th><center>Status</center></th>
+				<th><center>Approve</center></th>
+				<th><center>Reject</center></th>
+				
+
+			</tr>
+			<tr ng-repeat="blog in blogsp" class="danger">
+				<td>{{blog.id}}</td>
+				<td>{{blog.title}}</td>
+				<td>{{blog.userID}}</td>
+				<td>{{blog.status}}</td>
+				<td><a href=" " class="btn" ng-click="accept(blog.id)">Approve</a></td>
+				<td><a href=" " class="btn" ng-click="reject(blog.id)" style="color: red">Reject</a></td>
+			</tr>
+		</table>
+
+	</div>
+
+
+</div>

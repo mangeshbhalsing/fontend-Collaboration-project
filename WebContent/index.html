@@ -1,0 +1,100 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+
+<!-- <link rel="stylesheet" href="resources/css/login.css"> -->
+<!-- this is home CSS -->
+
+<link rel="stylesheet" href="resources/css/home.css">
+
+<link href="resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="resources/styles/bootstrap-social.css" rel="stylesheet">
+
+<!-- <link href="resources/styles/mystyles.css" rel="stylesheet"> -->
+
+<!-- This is materialize css link reqiuere internert -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"> -->
+
+
+<script src="https://use.fontawesome.com/7a86b67e5b.js"></script>
+<!-- HOME CSS ENDS -->
+
+</head>
+<body>
+
+	<div ng-include="'c_home/navbar.html'"></div>
+	<!--  View that dispaly all the pages -->
+	<div ng-view></div>
+	<!-- this is all the script -->
+
+
+	<script src="resources/js/listuser.js"></script>
+
+	<script src="resources/js/jquery.js"></script>
+
+	<script src="resources/js/bootstrap.min.js"></script>
+
+	<script src="resources/js/angular.js"></script>
+	<script src="resources/js/angular-route.js"></script>
+	<script src="resources/js/angular-cookies.js"></script>
+
+	<script src="resources/js/sockjs.js"></script>
+	<script src="resources/js/stomp.js"></script>
+
+
+	<script src="resources/js/upload.js"></script>
+	<script src="resources/js/ng-file-upload.js"></script>
+	<script src="resources/js/ng-file-upload-all.js"></script>
+
+
+	<script src="app.js"></script>
+
+	
+
+	<script src="c_user/UserController.js"></script>
+	<script src="c_user/UserService.js"></script>
+
+	 <script src="c_blog/BlogController.js"></script>
+	<script src="c_blog/BlogService.js"></script>
+	
+	<script src="c_blog/blogcommentController.js"></script>
+	<script src="c_blog/blogcommentService.js"></script>
+	
+	 <script src="c_friend/friendController.js"></script>
+	<script src="c_friend/friendService.js"></script> 
+
+	<script src="c_job/jobController.js"></script>
+	<script src="c_job/jobService.js"></script>
+	
+	<script src="c_event/eventController.js"></script>
+	<script src="c_event/eventService.js"></script>
+	
+	
+	
+	
+    <!-- <script src="c_chat_forum/ChatForumController.js"></script>
+	<script src="c_chat_forum/ChatForumService.js"></script>
+	
+	<script src="c_chat/ChatController.js"></script>
+	<script src="c_chat/ChatService.js"></script> -->
+
+
+
+	<!-- <script src="c_upload/FileUploadController.js"></script>
+	<script src="c_upload/FileUploadService.js"></script> -->
+
+ 
+	
+	<div class="row">
+
+	<div ng-include="'c_home/Footer.html'"></div>
+
+	</div>
+</body>
+</html>

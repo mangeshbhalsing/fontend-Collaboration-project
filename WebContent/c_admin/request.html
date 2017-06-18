@@ -1,0 +1,184 @@
+ <div class="card"> 
+	<div class="panel with-nav-tabs panel-primary">
+		<div class="panel-heading">
+			<ul class="nav nav-tabs">
+				<li ><a data-target="#tab1primary"
+					data-toggle="tab">User</a></li>
+				<li ><a data-target="#tab2primary" data-toggle="tab">Blog
+						</a></li>
+			</ul>
+		</div>
+		<div class="panel-body">
+			<div class="tab-content">
+			
+			<!-- THE CONTENT FIRST -->
+				<div class="tab-pane fade in active" id="tab1primary">
+
+					<div class=" text-center" ng-controllers="UserController ">
+						<h1>User Page</h1>
+
+						<table class="table">
+							<tr class="success">
+								<th>UserId</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Mobile</th>
+								<th>Role</th>
+								<th>Approve/Reject</th>
+
+
+							</tr>
+							<tr ng-repeat="user in users" class="danger">
+								<td>{{user.id}}</td>
+								<td>{{user.name}}</td>
+								<td>{{user.email}}</td>
+								<td>{{user.mobile}}</td>
+								<td>{{user.role}}</td>
+								<td><a href="" ng-click="approve(user.userId)">Approve</a><a
+									href="" ng-click="reject(user.userId)" style="color: red">Reject</a></td>
+								<!-- <td ng-show="currentUserRoleId == 'Role_Admin'"><a href=""
+									ng-click="makeAdmin(user.userId)">Make admin</a></td>
+								<td><a href="" ng-click="addFriendX(user.userId)">Send
+										Friend Request</a></td> -->
+
+
+
+							</tr>
+						</table>
+
+					</div>
+				</div>
+
+				<!-- THE CONTENT SECOND	 -->
+
+				<div class="tab-pane fade" id="tab2primary">
+
+					<div class=" text-center" ng-controllers="BlogController">
+						<h1>Blog Page</h1>
+
+						<table class="table">
+							<tr>
+								<th>BlogId</th>
+								<th>Name</th>
+								<th>User-ID</th>
+								<th>Status</th>
+								
+								<th>Approve/Reject</th>
+
+
+							</tr>
+							<tr ng-repeat="blog in blogs">
+								<td>{{blog.id}}</td>
+								<td>{{blog.name}}</td>
+								<td>{{blog.userID}}</td>
+								<td>{{blog.status}</td>
+								<td><a href="" ng-click="approve(user.userId)">Approve</a><a
+									href="" ng-click="reject(user.userId)" style="color: red">Reject</a></td>
+								<!-- <td ng-show="currentUserRoleId == 'Role_Admin'"><a href=""
+									ng-click="makeAdmin(user.userId)">Make admin</a></td>
+								<td><a href="" ng-click="addFriendX(user.userId)">Send
+										Friend Request</a></td> -->
+
+
+
+							</tr>
+						</table>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!-- <ul class="nav nav-tabs" role="tablist">
+			<li class="nav-item"><a class="nav-link active"
+				data-toggle="tab" href="#User" role="tab">User</a></li>
+			<li class="nav-item"><a class="nav-link" data-toggle="tab"
+				href="#Blog" role="tab">Blog</a></li>
+		</ul>
+
+		Tab panes
+		<div class="tab-content">
+
+			<div class="tab-pane active" id="User" role="tabpanel">
+
+
+				<div class=" text-center" ng-controllers="UserController ">
+					<h1>User Page</h1>
+
+					<table class="table">
+						<tr>
+							<th>UserId</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Mobile</th>
+							<th>Role</th>
+							<th >Approve/Reject</th>
+							
+							
+						</tr>
+						<tr ng-repeat="user in users">
+							<td>{{user.id}}</td>
+							<td>{{user.name}}</td>
+							<td>{{user.email}}</td>
+							<td>{{user.mobile}}</td>
+							<td>{{user.role}}</td>
+							<td ><a href=""
+								ng-click="approve(user.userId)">Approve</a><a href=""
+								ng-click="reject(user.userId)" style="color: red">Reject</a></td>
+							<td ng-show="currentUserRoleId == 'Role_Admin'"><a href=""
+								ng-click="makeAdmin(user.userId)">Make admin</a></td>
+							<td><a href="" ng-click="addFriendX(user.userId)">Send
+									Friend Request</a></td>
+
+
+
+						</tr>
+					</table>
+
+				</div>
+			</div>
+			<div class="tab-pane" id="Blog" role="tabpanel">
+				<div class=" text-center" ng-controllers="UserController ">
+					<h1>User Page</h1>
+
+					<table class="table">
+						<tr>
+							<th>UserId</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Mobile</th>
+							<th>Role</th>
+							<th>Approve/Reject</th>
+							<th>Make admin</th>
+							<th>send Friend Request</th>
+						</tr>
+						<tr ng-repeat="user in users">
+							<td>{{user.id}}</td>
+							<td>{{user.name}}</td>
+							<td>{{user.email}}</td>
+							<td>{{user.mobile}}</td>
+							<td>{{user.role}}</td>
+							<td><a href="" ng-click="approve(user.userId)">Approve</a><a
+								href="" ng-click="reject(user.userId)" style="color: red">Reject</a></td>
+							<td ng-show="currentUserRoleId == 'Role_Admin'"><a href=""
+						ng-click="makeAdmin(user.userId)">Make admin</a></td>
+							<td><a href="" ng-click="addFriendX(user.userId)">Send
+							Friend Request</a></td>
+
+
+
+						</tr>
+					</table>
+
+				</div>
+
+			</div>
+
+		</div> -->
+

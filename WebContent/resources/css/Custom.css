@@ -1,0 +1,26 @@
+@CHARSET "ISO-8859-1";
+
+#myCarousel img{
+	width: 1258px;
+    height: 429px;
+    margin-left: 1px;
+}
+.container {
+	
+	background-color: 
+}
+
+body{
+	background-color: white;
+	
+}
+
+.dropdown-menu li a{
+	background-color:white;
+}
+
+.navbar-inverse {
+    background-color: #06032f;
+    border-color: #555;
+    
+    

@@ -1,0 +1,30 @@
+<div class="card">
+
+<center>>Friend List </h1></center>
+
+<div class=" text-center" ng-controller="friendController as fC">
+	
+	<table class="table">
+		<tr class="success">
+			<th><center>Friend Id</center></th>
+			
+			<th><center>IsOnline</center></th>
+			<th><center>Unfriend</center></th>
+			<th><center>Chat</center></th>
+			
+		</tr>
+		<tr ng-repeat="friend  in fC.friends" class="danger">
+			<td><center>{{friend.friendId}}</center></td>
+			
+			
+			<td><center>{{friend.isOnline}}</center></td>
+			
+			<td><center><a href="" ng-click="unFriend(friend.friendId)">Unfriend
+			</a></center></td>
+			<td><center><a href="#chat" >Chat
+			</a></center></td>
+			<!-- <td><a href="" ng-click="edit(event.eventId)">Edit</a></td> -->
+		</tr>
+	</table>
+	</div>
+	</div>
